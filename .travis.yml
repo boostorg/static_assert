@@ -293,6 +293,13 @@ matrix:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.9
 
+    - os: linux
+      env: CMAKE=1
+      script:
+        - mkdir __build__ && cd __build__
+        - cmake -DBOOST_ENABLE_CMAKE=1 -DBoost_DEBUG=1 ..
+        - ctest --output-on-failure -R boost_static_assert
+
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++03
 
