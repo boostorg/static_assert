@@ -4,7 +4,7 @@
 # See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
 
 cmake_minimum_required(VERSION 3.5...3.16)
-project(BoostStaticAssert VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
+project(boost_static_assert VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
 add_library(boost_static_assert INTERFACE)
 add_library(Boost::static_assert ALIAS boost_static_assert)
@@ -21,5 +21,12 @@ include(BoostInstall OPTIONAL RESULT_VARIABLE HAVE_BOOST_INSTALL)
 if(HAVE_BOOST_INSTALL)
 
     boost_install(TARGETS boost_static_assert HEADER_DIRECTORY include/)
+
+endif()
+
+if(BUILD_TESTING)
+
+    add_subdirectory(test)
+    add_subdirectory(example)
 
 endif()
