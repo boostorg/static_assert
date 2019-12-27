@@ -28,6 +28,8 @@ if(BOOST_SUPERPROJECT_VERSION)
 
 endif()
 
+# BUILD_TESTING is the standard CTest variable that enables testing
+
 if(BUILD_TESTING)
 
   add_subdirectory(test)
