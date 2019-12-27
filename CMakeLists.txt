@@ -14,8 +14,8 @@ add_library(Boost::static_assert ALIAS boost_static_assert)
 target_include_directories(boost_static_assert INTERFACE include)
 
 target_link_libraries(boost_static_assert
-    INTERFACE
-        Boost::config
+  INTERFACE
+    Boost::config
 )
 
 # boost_install requires PROJECT_VERSION
@@ -30,7 +30,7 @@ endif()
 
 if(BUILD_TESTING)
 
-    add_subdirectory(test)
-    add_subdirectory(example)
+  add_subdirectory(test)
+  add_subdirectory(example)
 
 endif()
