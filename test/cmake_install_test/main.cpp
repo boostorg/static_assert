@@ -2,6 +2,6 @@
 
 int main()
 {
-	int const x = 5;
-	BOOST_STATIC_ASSERT( x > 4 );
+    int const x = 5;
+    BOOST_STATIC_ASSERT( x > 4 );
 }
