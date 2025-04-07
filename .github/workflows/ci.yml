@@ -23,7 +23,7 @@ jobs:
         id: cpp-matrix
         with:
           extra-values: |
-            boost-lib: multi_array
+            boost-lib: static_assert
             scan-dirs: test
           compilers: |
             gcc >= 4.8
