@@ -131,7 +131,7 @@ jobs:
         with:
           build-target: check
           install: true
-          cmake-version: ">=3.5"
+          cmake-version: ">=3.31"
           generator: ${{ matrix.generator }}
           generator-toolset: ${{ matrix.generator-toolset }}
           toolchain: ${{ steps.package-install.outputs.vcpkg-toolchain }}
