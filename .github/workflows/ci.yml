@@ -32,6 +32,8 @@ jobs:
             apple-clang *
             mingw *
             clang-cl *
+          subrange-policy: |
+            msvc: one-per-minor
           standards: ">=11"
           latest-factors: |
             gcc Asan TSan UBSan
@@ -127,9 +129,9 @@ jobs:
       - name: CMake Workflow
         uses: alandefreitas/cpp-actions/cmake-workflow@master
         with:
-          build-targets: check
+          build-target: check
           install: true
-          cmake-version: ">=3.20"
+          cmake-version: ">=3.5"
           generator: ${{ matrix.generator }}
           generator-toolset: ${{ matrix.generator-toolset }}
           toolchain: ${{ steps.package-install.outputs.vcpkg-toolchain }}
