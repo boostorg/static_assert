@@ -130,6 +130,7 @@ jobs:
         uses: alandefreitas/cpp-actions/cmake-workflow@master
         with:
           source-dir: ${{ steps.boost-clone.outputs.boost-dir }}/libs/${{ matrix.boost-lib }}
+          build-dir: _build_dir_
           run-tests: ignore
           install: true
           cmake-version: ">=3.31"
