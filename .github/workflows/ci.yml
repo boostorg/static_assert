@@ -128,11 +128,9 @@ jobs:
 
       - name: CMake Workflow
         uses: alandefreitas/cpp-actions/cmake-workflow@master
-        env:
-          CTEST_NO_TESTS_ACTION: ignore
         with:
           source-dir: ${{ steps.boost-clone.outputs.boost-dir }}/libs/${{ matrix.boost-lib }}
-          run-tests: true
+          run-tests: ignore
           install: true
           cmake-version: ">=3.31"
           generator: ${{ matrix.generator }}
