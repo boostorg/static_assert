@@ -131,6 +131,7 @@ jobs:
         env:
           CTEST_NO_TESTS_ACTION: ignore
         with:
+          source-dir: ${{ steps.boost-clone.outputs.boost-dir }}/libs/${{ matrix.boost-lib }}
           run-tests: true
           install: true
           cmake-version: ">=3.31"
