@@ -1,10 +1,10 @@
 # Copyright 2018 Mike Dev
-# Copyright 2019 Peter Dimov
+# Copyright 2019, 2025 Peter Dimov
 # Distributed under the Boost Software License, Version 1.0.
-# See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
+# https://www.boost.org/LICENSE_1_0.txt
 
-# We support CMake 3.5, but prefer 3.16 policies and behavior
-cmake_minimum_required(VERSION 3.5...3.16)
+# We support CMake 3.5, but prefer 3.31 policies and behavior
+cmake_minimum_required(VERSION 3.5...3.31)
 
 project(boost_static_assert VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 
@@ -15,6 +15,14 @@ target_link_libraries(boost_static_assert
   INTERFACE
     Boost::config
 )
+
+# Automatic installation doesn't trigger because we have no include directory
+
+if(BOOST_SUPERPROJECT_VERSION AND NOT CMAKE_VERSION VERSION_LESS 3.13)
+
+  boost_install(TARGETS boost_static_assert VERSION ${BOOST_SUPERPROJECT_VERSION})
+
+endif()
 
 # BUILD_TESTING is the standard CTest variable that enables testing
 
