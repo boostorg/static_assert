@@ -11,18 +11,12 @@ project(boost_static_assert VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CX
 add_library(boost_static_assert INTERFACE)
 add_library(Boost::static_assert ALIAS boost_static_assert)
 
+target_include_directories(boost_static_assert INTERFACE include)
+
 target_link_libraries(boost_static_assert
   INTERFACE
     Boost::config
 )
-
-# Automatic installation doesn't trigger because we have no include directory
-
-if(BOOST_SUPERPROJECT_VERSION AND NOT CMAKE_VERSION VERSION_LESS 3.13)
-
-  boost_install(TARGETS boost_static_assert VERSION ${BOOST_SUPERPROJECT_VERSION})
-
-endif()
 
 # BUILD_TESTING is the standard CTest variable that enables testing
 
